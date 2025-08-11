@@ -33,9 +33,9 @@ export const sendEmail = async (formData: FormData) => {
         // This is the core function that sends the email
         data = await resend.emails.send({
             from: "Contact Form <onboarding@resend.dev>", // Must be a verified domain in Resend
-            to: "zhengchean@gmail.com", // ⚠️ CHANGE THIS TO YOUR OWN EMAIL ADDRESS
+            to: "miglimwj@gmail.com", // ⚠️ CHANGE THIS TO YOUR OWN EMAIL ADDRESS
             subject: "Message from your Portfolio Contact Form",
-            reply_to: senderEmail,
+            replyTo: senderEmail,
             // We use the React component to generate the email's HTML
             react: React.createElement(ContactFormEmail, {
                 message: message,
