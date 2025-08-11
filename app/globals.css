@@ -1,26 +1,25 @@
-@import "tailwindcss";
+/* app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.nav-link[href^="#"]:has(:target) {
+    color: #111827; /* dark:text-gray-950 */
+    font-weight: 600;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* This is the gradient indicator */
+li:has(> a.nav-link[href^="#"]:has(:target)) {
+    background-color: #f3f4f6; /* bg-gray-100 */
+    border-radius: 9999px; /* rounded-full */
+    z-index: -10;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Dark mode styles */
+.dark .nav-link[href^="#"]:has(:target) {
+    color: #f9fafb; /* dark:text-gray-200 */
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.dark li:has(> a.nav-link[href^="#"]:has(:target)) {
+    background-color: #374151; /* dark:bg-gray-700 */
 }
