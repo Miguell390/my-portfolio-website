@@ -32,7 +32,7 @@ export const sendEmail = async (formData: FormData) => {
     try {
         // This is the core function that sends the email
         data = await resend.emails.send({
-            from: "Contact Form <onboarding@resend.dev>", // Must be a verified domain in Resend
+            from: "Contact Form <noreply@miguel-lim.me>", // Must be a verified domain in Resend
             to: "miglimwj@gmail.com", // ⚠️ CHANGE THIS TO YOUR OWN EMAIL ADDRESS
             subject: "Message from your Portfolio Contact Form",
             replyTo: senderEmail,
