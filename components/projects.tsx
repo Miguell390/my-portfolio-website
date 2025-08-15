@@ -2,9 +2,10 @@
 
 import React from "react";
 import SectionHeading from "./section-heading";
-import { projectsData } from "@/lib/data"; // Make sure to populate this file
+import { projectsData } from "@/lib/data";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { FaGithub } from "react-icons/fa";
 
 export default function Projects() {
     return (
@@ -21,9 +22,9 @@ export default function Projects() {
     );
 }
 
-type ProjectProps = (typeof projectsData)[number];
+type ProjectProps = (typeof projectsData)[number] & { githubUrl?: string };
 
-function Project({ title, description, tags, imageUrl }: ProjectProps) {
+function Project({ title, description, tags, imageUrl, githubUrl }: ProjectProps) {
     const ref = React.useRef<HTMLDivElement>(null);
 
     return (
@@ -35,9 +36,24 @@ function Project({ title, description, tags, imageUrl }: ProjectProps) {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
         >
-            <section className="bg-white max-w-[42rem] border border-black/5 rounded-lg overflow-hidden sm:pr-8 relative sm:h-[20rem] hover:bg-gray-50 transition sm:group-even:pl-8 dark:text-white dark:bg-white/10 dark:hover:bg-white/20">
+            <section className="bg-gray-100 max-w-[42rem] border border-black/5 rounded-lg overflow-hidden sm:pr-8 relative sm:h-auto hover:bg-gray-200 transition sm:group-even:pl-8 dark:text-white dark:bg-white/10 dark:hover:bg-white/20">
+                {/* THE FIX IS ON THE NEXT LINE: Re-added sm:max-w-[50%] */}
                 <div className="pt-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full sm:group-even:ml-[18rem]">
-                    <h3 className="text-2xl font-semibold">{title}</h3>
+                    <div className="flex items-center gap-4">
+                        <h3 className="text-2xl font-semibold">{title}</h3>
+                        {githubUrl && (
+                            <a
+                                href={githubUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-gray-700 dark:text-white/70 text-2xl hover:scale-110 transition-transform"
+                                aria-label={`${title} GitHub repository`}
+                            >
+                                <FaGithub />
+                            </a>
+                        )}
+                    </div>
+
                     <p className="mt-2 leading-relaxed text-gray-700 dark:text-white/70">
                         {description}
                     </p>
@@ -55,7 +71,7 @@ function Project({ title, description, tags, imageUrl }: ProjectProps) {
 
                 <Image
                     src={imageUrl}
-                    alt="Project I worked on"
+                    alt={`Screenshot of the ${title} project`}
                     quality={95}
                     className="absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-lg shadow-2xl transition
           group-hover:scale-[1.04]

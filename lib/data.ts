@@ -2,12 +2,9 @@ import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
-import userproImg from "@/public/userpro.png";
-import datavisImg from "@/public/datavis.png";
-import iamImg from "@/public/IAM.png";
 
-import ecommerceImg from "@/public/agecare.png"; // <-- NEW IMAGE 1
-import chatappImg from "@/public/chatbot.png";   // <-- NEW IMAGE 2
+import intelligentspend from "@/public/inteligentspend.png";
+import pdfchatbot from "@/public/pdfchatbot.png";
 
 // imports icons for certifications
 import { LuAward, LuShieldCheck } from "react-icons/lu"; // <-- Add new icon import
@@ -52,18 +49,20 @@ export const experiencesData = [
 
 export const projectsData = [
     { // NEW PROJECT 1
-        title: "Full-Stack E-commerce Site",
+        title: "PDF Chatbot Integration Tool",
         description:
-            "A complete e-commerce platform with user authentication, product catalog, shopping cart",
-        tags: ["React", "Next.js", "Node.js", "Stripe", "MongoDB"],
-        imageUrl: ecommerceImg, // Use the new imported image
+            "GeminiApp is a PDF-focused integration tool that combines chatbot functionality with intelligent PDF content extraction and processing. Designed to enable conversational AI for PDF documents, this application allows users to query, edit, and interact with PDF content seamlessly.",
+        tags: ["JavaScript", "Node.js", "Express", "Docker", "Google Generative AI", "Multer", "Cheerio" ],
+        imageUrl: pdfchatbot, // Use the new imported image
+        githubUrl: "https://github.com/Miguell390/geminiapp",
     },
     { // NEW PROJECT 2
-        title: "Real-Time Chat App",
+        title: "Intelligent Financial Tracker",
         description:
-            "A web-based chat application allowing users to join rooms and send messages in real-time. Leverages WebSockets for instant communication.",
-        tags: ["React", "Socket.IO", "Node.js", "Express", "CSS"],
-        imageUrl: chatappImg, // Use the new imported image
+            "A full-stack web application that helps you track your expenses and gain financial insights through the power of Google's Gemini AI. This project demonstrates a complete MERN stack application with advanced AI features, designed to be a clean, intuitive, and powerful financial tool.",
+        tags: ["React", "Node.js", "Express", "Chart.js", "MongoDB", "Mongoose", "Google Gemini API"],
+        imageUrl: intelligentspend, // Use the new imported image
+        githubUrl: "https://github.com/Miguell390/intelligentTransactionTracker",
     }
 ] as const;
 
