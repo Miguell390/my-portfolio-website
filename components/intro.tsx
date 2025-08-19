@@ -29,13 +29,13 @@ export default function Intro() {
                         }}
                     >
                         <Image
-                            src="/profilepic.jpg"
+                            src="/migprofilepicture.png"
                             alt="Profile Picture"
                             width="192"
                             height="192"
                             quality="95"
                             priority={true}
-                            className="h-24 w-24 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
+                            className="h-27 w-27 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
                         />
                     </motion.div>
 
